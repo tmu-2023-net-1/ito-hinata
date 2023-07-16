@@ -82,20 +82,35 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 
 
-  // 各文字要素に対して変更後のテキストを設定する
 const wordTexts = [
-  { word: '単語1', changedWord: '変更後のテキスト1' },
-  { word: '単語2', changedWord: '変更後のテキスト2' },
-  { word: '単語3', changedWord: '変更後のテキスト3' },
-  // 他の単語と変更後のテキストの組み合わせを追加
+  { word: '宇宙', changedWord: '全て' },
+  { word: '無限', changedWord: '万物' },
+  { word: '空間', changedWord: '虚空' },
+  { word: '重力', changedWord: '天地' },
+  { word: '世界', changedWord: '地球' },
+  { word: '夜', changedWord: '影' },
+  { word: '星', changedWord: '輝き' },
+  { word: '星 ', changedWord: '願い' },
+  { word: '大空', changedWord: '蒼穹' },
+  { word: '風', changedWord: '流' },
+  { word: '季', changedWord: '巡' },
+  { word: '太陽', changedWord: '源' },
+  { word: '雲', changedWord: '境界' },
+  { word: '雲 ', changedWord: '毛布' },
+  { word: '雲  ', changedWord: 'ふわふわ' },
+  { word: '雲   ', changedWord: '連想' },
+  { word: '雲    ', changedWord: '便り' },
+  { word: '雨', changedWord: '涙' },
+  { word: '雨 ', changedWord: '恵' },
+  { word: '雨  ', changedWord: '音' },
+  { word: '雨   ', changedWord: '匂' },
+  { word: '晴天', changedWord: '澄清' },
+  { word: '鳥', changedWord: '自由' },
+  { word: '飛行機', changedWord: '旅' },
+  { word: '風船', changedWord: '夢' },
+  { word: '風景', changedWord: '心情' },
 ];
 
-// 初期状態の文字を設定
-for (let i = 0; i < words.length; i++) {
-  const word = words[i];
-  word.textContent = wordTexts[i].word;
-  word.dataset.word = wordTexts[i].word;
-}
 
 function checkCharacterOverlap() {
   const characterRect = character.getBoundingClientRect();
@@ -104,18 +119,48 @@ function checkCharacterOverlap() {
     const word = words[i];
     const wordRect = word.getBoundingClientRect();
 
-    // 文字とキャラクターの重なりをチェック
-    if (
-      characterRect.left < wordRect.right &&
-      characterRect.right > wordRect.left &&
-      characterRect.top < wordRect.bottom &&
-      characterRect.bottom > wordRect.top
-    ) {
-      // 文字とキャラクターが重なっている場合、変更後のテキストに置き換える
+    // 文字とキャラクターの重なりチェック
+    if (characterRect.left < wordRect.right &&
+        characterRect.right > wordRect.left &&
+        characterRect.top < wordRect.bottom &&
+        characterRect.bottom > wordRect.top ) 
+    {
       word.textContent = wordTexts[i].changedWord;
-    } else {
-      // 文字とキャラクターが重なっていない場合、元のテキストに戻す
-      word.textContent = wordTexts[i].word;
     }
   }
 }
+setInterval(checkCharacterOverlap, 100);
+
+
+
+
+const retryButton = document.getElementById('retry');
+retryButton.addEventListener('click', function() {
+  window.location.href = 'index.html';
+});
+
+
+
+
+window.addEventListener('load', function() {
+  const container = document.documentElement;
+  const endScrollTop = container.scrollHeight - container.clientHeight;
+  const scrollSpeed = 120; // スクロールの速度を指定（ピクセル/秒）
+
+  const startTime = performance.now();
+  const startScrollTop = container.scrollTop;
+
+  function scroll() {
+    const elapsed = performance.now() - startTime;
+    const scrollDistance = (elapsed / 1000) * scrollSpeed;
+    const scrollTo = Math.min(startScrollTop + scrollDistance, endScrollTop);
+
+    container.scrollTop = scrollTo;
+
+    if (scrollTo < endScrollTop) {
+      requestAnimationFrame(scroll);
+    }
+  }
+
+  requestAnimationFrame(scroll);
+});

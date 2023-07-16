@@ -9,18 +9,35 @@ body {
     margin: 0;
   }
   
-  .title {
-    text-align: center;
-    margin-bottom: 20px;
+  .title img{
+    width: 300px;
+    height: auto;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
   
-  .button {
-    display: inline-block;
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 20px;
-    border-radius: 5px;
-  }
+#start-container {
+  position: absolute;
+  top: 380px;
+  left: 50vw;
+  transform: translateX(-50%);
+}
+
+#start {
+  display: block;
+  margin: 0 auto;
+  background-color: rgb(104, 91, 156);
+  color: rgb(246, 241, 255);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+#start:hover {
+  background-color: rgb(126, 111, 187);
+  color: rgb(252, 252, 252);
+}
