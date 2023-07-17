@@ -1,14 +1,3 @@
-window.addEventListener('DOMContentLoaded', (event) => {
-    const words = document.getElementsByClassName('word');
-    //const fonts = ['font1', 'font2', 'font3']; // 使用するフォントのリスト
-  
-    Array.from(words).forEach((word) => {
-      const fontIndex = Math.floor(Math.random() * fonts.length);
-      const selectedFont = fonts[fontIndex];
-      word.classList.add(selectedFont);
-    });
-  });
-
   const character = document.getElementById('character');
   const words = document.getElementsByClassName('word');
   const moveLeftBtn = document.getElementById('move-left');
@@ -84,7 +73,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 const wordTexts = [
   { word: '宇宙', changedWord: '全て' },
-  { word: '無限', changedWord: '万物' },
+  { word: '未知', changedWord: '無限' },
   { word: '空間', changedWord: '虚空' },
   { word: '重力', changedWord: '天地' },
   { word: '世界', changedWord: '地球' },
@@ -93,7 +82,7 @@ const wordTexts = [
   { word: '星 ', changedWord: '願い' },
   { word: '大空', changedWord: '蒼穹' },
   { word: '風', changedWord: '流' },
-  { word: '季', changedWord: '巡' },
+  { word: '光', changedWord: '色' },
   { word: '太陽', changedWord: '源' },
   { word: '雲', changedWord: '境界' },
   { word: '雲 ', changedWord: '毛布' },
@@ -145,7 +134,7 @@ retryButton.addEventListener('click', function() {
 window.addEventListener('load', function() {
   const container = document.documentElement;
   const endScrollTop = container.scrollHeight - container.clientHeight;
-  const scrollSpeed = 120; // スクロールの速度を指定（ピクセル/秒）
+  const scrollSpeed = 120;
 
   const startTime = performance.now();
   const startScrollTop = container.scrollTop;
