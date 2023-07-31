@@ -114,7 +114,13 @@ function checkCharacterOverlap() {
         characterRect.top < wordRect.bottom &&
         characterRect.bottom > wordRect.top ) 
     {
-      word.textContent = wordTexts[i].changedWord;
+      const rotateDuration = 0.5; // 回転アニメーションの持続時間（秒）
+      const rotateDeg = 360; // 回転角度（度）
+      word.style.transition = `transform ${rotateDuration}s ease-in-out`;
+      word.style.transform = `rotateY(${rotateDeg}deg)`;
+      setTimeout(() => {
+        word.textContent = wordTexts[i].changedWord;
+      }, 300);
     }
   }
 }

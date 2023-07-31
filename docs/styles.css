@@ -1,9 +1,15 @@
+@font-face {
+  font-family: 'GenEi Gothic';
+  src: url('GenEi-P-Heavy_ver8.ttf') format('truetype');
+}
+
+body {
+  font-family: 'GenEi Gothic', sans-serif; 
+}
 
 #content {
-    writing-mode: vertical-rl;
     white-space: nowrap;
     position: absolute;
-    font-family: "Yu Gothic", "YuGothic", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", sans-serif;
   }
 
 #retry-container {
